@@ -11,7 +11,7 @@ public static class Loader
     // Lista de nuestras escenas
     public enum Scene
     {
-        Game,
+        Level1,
         LoadingScene,
         MainMenu
     }
