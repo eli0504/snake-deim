@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
+    public static MainMenuUI Instance { get; private set; }
+
+
     [SerializeField] private Button playButton;
     [SerializeField] private Button howToPlayButton;
     [SerializeField] private Button quitButton;
@@ -19,6 +22,15 @@ public class MainMenuUI : MonoBehaviour
 
     private void Awake()
     {
+        // Singleton
+        if (Instance != null)
+        {
+            Debug.LogError("There is more than one Instance");
+        }
+
+        Instance = this;
+
+
         playButton.onClick.AddListener(() => {Loader.Load(Loader.Scene.Level1);});
         howToPlayButton.onClick.AddListener(ShowHowToPlayPanel);
         quitButton.onClick.AddListener(Application.Quit);

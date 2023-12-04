@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
     public void SnakeDied()
     {
         GameOverUI.Instance.Show(Score.TrySetNewHighScore());
+        GameOverLevel();
     }
 
     public void PauseGame()
@@ -79,5 +80,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         PauseUI.Instance.Hide();
         isPaused = false;
+    }
+
+    public void GameOverLevel()
+    {
+        GameOverUI.Instance.GameOverLevels();
     }
 }

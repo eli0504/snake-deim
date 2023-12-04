@@ -13,6 +13,9 @@ public class GameOverUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
 
+    [SerializeField] private GameObject gameOverPanel;
+
+    [SerializeField] private Button levelTwoButtonGameOver;
     private void Awake()
     {
         if (Instance != null)
@@ -25,6 +28,8 @@ public class GameOverUI : MonoBehaviour
         restartButton.onClick.AddListener(() => {Loader.Load(Loader.Scene.Level1);});
 
         Hide();
+
+        levelTwoButtonGameOver.onClick.AddListener(() => { Loader.Load(Loader.Scene.Level2); });
     }
 
     public void Show(bool hasNewHighScore)
@@ -52,5 +57,10 @@ public class GameOverUI : MonoBehaviour
         // {
         //     messsageText.text = "DON'T WORRY, NEXT TIME";
         // }
+    }
+
+    public void GameOverLevels()
+    {
+        gameOverPanel.SetActive(true);
     }
 }

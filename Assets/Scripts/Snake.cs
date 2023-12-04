@@ -260,7 +260,6 @@ public class Snake : MonoBehaviour
                     // GAME OVER
                     state = State.Dead;
                     GameManager.Instance.SnakeDied();
-                    SceneManager.LoadScene(sceneBuildIndex:2);
                 }
             }
 
