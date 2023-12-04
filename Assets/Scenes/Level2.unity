@@ -406,9 +406,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartButton: {fileID: 2154382275036110559}
-  messsageText: {fileID: 1647917416}
-  scoreText: {fileID: 1874398840}
-  highScoreText: {fileID: 2026823621}
+  messsageText: {fileID: 0}
+  scoreText: {fileID: 0}
+  highScoreText: {fileID: 0}
 --- !u!1 &433374315
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.56514776, g: 0.9433962, b: 0.9397305, a: 0.6862745}
+  m_Color: {r: 0.5647059, g: 0.94509804, b: 0.57650286, a: 0.6862745}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1141,7 +1141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7761108, g: 0.5771182, b: 0.9339623, a: 0.6862745}
+  m_Color: {r: 0.93333334, g: 0.5764706, b: 0.66302186, a: 0.6862745}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
