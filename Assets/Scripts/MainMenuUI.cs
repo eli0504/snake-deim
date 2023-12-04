@@ -9,7 +9,10 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button howToPlayButton;
     [SerializeField] private Button quitButton;
-    
+
+    [SerializeField] private Button levelOneButton;
+    [SerializeField] private Button levelTwoButton;
+
     [SerializeField] private Button quitHowToPlayPanelButton;
 
     [SerializeField] private GameObject howToPlayPanel;
@@ -19,7 +22,9 @@ public class MainMenuUI : MonoBehaviour
         playButton.onClick.AddListener(() => {Loader.Load(Loader.Scene.Level1);});
         howToPlayButton.onClick.AddListener(ShowHowToPlayPanel);
         quitButton.onClick.AddListener(Application.Quit);
-        
+        levelOneButton.onClick.AddListener(() => { Loader.Load(Loader.Scene.Level1); });
+        levelTwoButton.onClick.AddListener(() => { Loader.Load(Loader.Scene.Level2); });
+
         quitHowToPlayPanelButton.onClick.AddListener(HideHowToPlayPanel);
         
         HideHowToPlayPanel();
@@ -36,4 +41,5 @@ public class MainMenuUI : MonoBehaviour
     {
         howToPlayPanel.SetActive(false);
     }
+
 }
