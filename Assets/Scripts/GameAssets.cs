@@ -16,9 +16,6 @@ public class GameAssets : MonoBehaviour
     public Sprite snakeBodySprite;
     public Sprite foodSprite;
 
-    public Sprite snakeHeadMirrorSprite;
-    public Sprite snakeBodyMirrorSprite;
-
     public SoundAudioClip[] soundAudioClipsArray;
 
     private void Awake()

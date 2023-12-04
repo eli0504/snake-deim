@@ -213,11 +213,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 69df73996895bb949835fce1adb6e0e3, type: 2}
     - target: {fileID: 2136874962662793153, guid: 2ac0f789bbc7e4132b0b743d44ef226a, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.7058824
+      value: 0.70980394
       objectReference: {fileID: 0}
     - target: {fileID: 2136874962662793153, guid: 2ac0f789bbc7e4132b0b743d44ef226a, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.70980394
+      value: 0.5137255
       objectReference: {fileID: 0}
     - target: {fileID: 2136874962662793153, guid: 2ac0f789bbc7e4132b0b743d44ef226a, type: 3}
       propertyPath: m_fontColor.r
@@ -233,7 +233,7 @@ PrefabInstance:
       objectReference: {fileID: 7302869859698654092, guid: 69df73996895bb949835fce1adb6e0e3, type: 2}
     - target: {fileID: 2136874962662793153, guid: 2ac0f789bbc7e4132b0b743d44ef226a, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4290033015
+      value: 4290085751
       objectReference: {fileID: 0}
     - target: {fileID: 2136874962662793153, guid: 2ac0f789bbc7e4132b0b743d44ef226a, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -908,8 +908,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4288966028
-  m_fontColor: {r: 0.549433, g: 0.4266643, b: 0.6415094, a: 1}
+    rgba: 4289296819
+  m_fontColor: {r: 0.7019608, g: 0.47450984, b: 0.6627451, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -998,11 +998,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 69df73996895bb949835fce1adb6e0e3, type: 2}
     - target: {fileID: 2136874962662793153, guid: 2ac0f789bbc7e4132b0b743d44ef226a, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.7058824
+      value: 0.70980394
       objectReference: {fileID: 0}
     - target: {fileID: 2136874962662793153, guid: 2ac0f789bbc7e4132b0b743d44ef226a, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.70980394
+      value: 0.5137255
       objectReference: {fileID: 0}
     - target: {fileID: 2136874962662793153, guid: 2ac0f789bbc7e4132b0b743d44ef226a, type: 3}
       propertyPath: m_fontColor.r
@@ -1018,7 +1018,7 @@ PrefabInstance:
       objectReference: {fileID: 7302869859698654092, guid: 69df73996895bb949835fce1adb6e0e3, type: 2}
     - target: {fileID: 2136874962662793153, guid: 2ac0f789bbc7e4132b0b743d44ef226a, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4290033015
+      value: 4290085751
       objectReference: {fileID: 0}
     - target: {fileID: 2136874962662793153, guid: 2ac0f789bbc7e4132b0b743d44ef226a, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -1850,8 +1850,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4288966028
-  m_fontColor: {r: 0.549433, g: 0.4266643, b: 0.6415094, a: 1}
+    rgba: 4289296819
+  m_fontColor: {r: 0.7019608, g: 0.47450984, b: 0.6627451, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2116,7 +2116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1980891569
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2422,7 +2422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2085311336}
-  - component: {fileID: 2085311335}
+  - component: {fileID: 2085311337}
   m_Layer: 0
   m_Name: Game Assets
   m_TagString: Untagged
@@ -2430,34 +2430,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2085311335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085311334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8deb3ffe5722d448bbb3f7fc121894bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  snakeHeadSprite: {fileID: 21300000, guid: cb0dda71d17e14a5397dd937d9b48cf9, type: 3}
-  snakeBodySprite: {fileID: 21300000, guid: 3f7bca037e73b403abcaf55f02ca25f9, type: 3}
-  foodSprite: {fileID: 21300000, guid: fab1cffb3db1d41cc82e8300b33e7777, type: 3}
-  snakeHeadMirrorSprite: {fileID: 21300000, guid: 1b7c0c4d38dc29d4cb844f1d63871415, type: 3}
-  snakeBodyMirrorSprite: {fileID: 21300000, guid: 5adb01109d5f62740bacea32f7475dd8, type: 3}
-  soundAudioClipsArray:
-  - sound: 0
-    audioClip: {fileID: 8300000, guid: 287714c74120797488f2baa3f148324a, type: 3}
-  - sound: 1
-    audioClip: {fileID: 8300000, guid: 586cdf59812c57747bcd22532fa44580, type: 3}
-  - sound: 2
-    audioClip: {fileID: 8300000, guid: 647bbda710c831143a83718fd2bbf49c, type: 3}
-  - sound: 3
-    audioClip: {fileID: 8300000, guid: 41cfd9d5497136546aec1b9eace0231f, type: 3}
-  - sound: 4
-    audioClip: {fileID: 8300000, guid: 883acfd132926d54b864f023c6f3220d, type: 3}
 --- !u!4 &2085311336
 Transform:
   m_ObjectHideFlags: 0
@@ -2473,6 +2445,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2085311337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085311334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8deb3ffe5722d448bbb3f7fc121894bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snakeHeadSprite: {fileID: 21300000, guid: 78fac1c12a0589045adab9d6361b9a35, type: 3}
+  snakeBodySprite: {fileID: 21300000, guid: 5a384280c511ac44e8ba00736271d236, type: 3}
+  foodSprite: {fileID: 21300000, guid: fab1cffb3db1d41cc82e8300b33e7777, type: 3}
+  soundAudioClipsArray:
+  - sound: 0
+    audioClip: {fileID: 8300000, guid: 287714c74120797488f2baa3f148324a, type: 3}
+  - sound: 1
+    audioClip: {fileID: 8300000, guid: 586cdf59812c57747bcd22532fa44580, type: 3}
+  - sound: 2
+    audioClip: {fileID: 8300000, guid: 647bbda710c831143a83718fd2bbf49c, type: 3}
+  - sound: 3
+    audioClip: {fileID: 8300000, guid: 41cfd9d5497136546aec1b9eace0231f, type: 3}
+  - sound: 4
+    audioClip: {fileID: 8300000, guid: 883acfd132926d54b864f023c6f3220d, type: 3}
 --- !u!1 &2098434753
 GameObject:
   m_ObjectHideFlags: 0
