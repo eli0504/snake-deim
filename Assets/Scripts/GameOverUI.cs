@@ -6,9 +6,7 @@ public class GameOverUI : MonoBehaviour
 {
     // Singleton
     public static GameOverUI Instance { get; private set; }
-    
-    [SerializeField] private Button restartButton;
-    
+  
     [SerializeField] private TextMeshProUGUI messsageText;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
@@ -16,6 +14,7 @@ public class GameOverUI : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
 
     [SerializeField] private Button levelTwoButtonGameOver;
+    [SerializeField] private Button levelOneButtonGameOver;
     private void Awake()
     {
         if (Instance != null)
@@ -25,11 +24,10 @@ public class GameOverUI : MonoBehaviour
 
         Instance = this;
         
-        restartButton.onClick.AddListener(() => {Loader.Load(Loader.Scene.Level1);});
-
         Hide();
 
         levelTwoButtonGameOver.onClick.AddListener(() => { Loader.Load(Loader.Scene.Level2); });
+        levelOneButtonGameOver.onClick.AddListener(() => { Loader.Load(Loader.Scene.Level1); });
     }
 
     public void Show(bool hasNewHighScore)
