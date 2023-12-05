@@ -109,7 +109,7 @@ public class Snake : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, angle);
         }
     }
-    
+
     private class SnakeMovePosition
     {
         private SnakeMovePosition previousSnakeMovePosition;
@@ -146,6 +146,7 @@ public class Snake : MonoBehaviour
     
     # region VARIABLES
     private Vector2Int gridPosition; // Posición 2D de la cabeza
+
     private Vector2Int startGridPosition;
     private Direction gridMoveDirection; // Dirección de la cabeza
 
@@ -253,6 +254,7 @@ public class Snake : MonoBehaviour
 
         gridPosition += gridMoveDirectionVector; // Mueve la posición 2D de la cabeza de la serpiente
         gridPosition = levelGrid.ValidateGridPosition(gridPosition);
+
 
         EatFood();
 

@@ -1,4 +1,6 @@
+using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelGrid
 {
@@ -61,28 +63,59 @@ public class LevelGrid
 
     public Vector2Int ValidateGridPosition(Vector2Int gridPosition)
     {
-        int w = Half(width);
-        int h = Half(height);
-        
-        // Me salgo por la derecha
-        if (gridPosition.x > w)
+        if (SceneManager.GetActiveScene().name == "Level1")
         {
-            gridPosition.x = -w;
-        }
-        if (gridPosition.x < -w)
-        {
-            gridPosition.x = w;
-        }
-        if (gridPosition.y > h)
-        {
-            gridPosition.y = -h;
-        }
-        if (gridPosition.y < -h)
-        {
-            gridPosition.y = h;
-        }
+            int w = Half(width);
+            int h = Half(height);
 
+            {
+                // Me salgo por la derecha
+                if (gridPosition.x > w)
+                {
+                    gridPosition.x = -w;
+                }
+                if (gridPosition.x < -w)
+                {
+                    gridPosition.x = w;
+                }
+                if (gridPosition.y > h)
+                {
+                    gridPosition.y = -h;
+                }
+                if (gridPosition.y < -h)
+                {
+                    gridPosition.y = h;
+                }
+            }
+           
+        }else if(SceneManager.GetActiveScene().name == "Level2")
+        {
+            int w = Half(width);
+            int h = Half(height);
+            // Me salgo por la derecha
+            if (gridPosition.x > w)
+            {
+                gridPosition.x = -w;
+                gridPosition.y *= -1;
+            }
+            if (gridPosition.x < -w)
+            {
+                gridPosition.x = w;
+                gridPosition.y *= -1;
+            }
+            if (gridPosition.y > h)
+            {
+                gridPosition.y = -h;
+                gridPosition.x *= 1;
+            }
+            if (gridPosition.y < -h)
+            {
+                gridPosition.y = h;
+                gridPosition.x *= 1;
+            }
+        }
         return gridPosition;
+
     }
 
     private int Half(int number)
