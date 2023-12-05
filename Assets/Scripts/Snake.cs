@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -215,113 +216,115 @@ public class Snake : MonoBehaviour
             SnakeMovePosition snakeMovePosition = new SnakeMovePosition(previousSnakeMovePosition, gridPosition, gridMoveDirection);
             snakeMovePositionsList.Insert(0, snakeMovePosition);
 
-            // Relación entre enum Direction y vectores left, right, down y up
-            Vector2Int gridMoveDirectionVector;
+            
             if(SceneManager.GetActiveScene().name == "Level1")
             {
-                switch (gridMoveDirection)
-                {
-                    default:
-                    case Direction.Left:
-                        gridMoveDirectionVector = new Vector2Int(-1, 0);
-                        break;
-                    case Direction.Right:
-                        gridMoveDirectionVector = new Vector2Int(1, 0);
-                        break;
-                    case Direction.Down:
-                        gridMoveDirectionVector = new Vector2Int(0, -1);
-                        break;
-                    case Direction.Up:
-                        gridMoveDirectionVector = new Vector2Int(0, 1);
-                        break;
-                }
-
-                gridPosition += gridMoveDirectionVector; // Mueve la posición 2D de la cabeza de la serpiente
-                gridPosition = levelGrid.ValidateGridPosition(gridPosition);
-
-                // ¿He comido comida?
-                bool snakeAteFood = levelGrid.TrySnakeEatFood(gridPosition);
-                if (snakeAteFood)
-                {
-                    // El cuerpo crece
-                    snakeBodySize++;
-                    CreateBodyPart();
-                }
-
-                if (snakeMovePositionsList.Count > snakeBodySize)
-                {
-                    snakeMovePositionsList.
-                        RemoveAt(snakeMovePositionsList.Count - 1);
-                }
-
-                // Comprobamos el Game Over aquí porque tenemos la posición de la cabeza y la lista snakeMovePositionsList actualizadas para poder comprobar la muerte
-                foreach (SnakeMovePosition movePosition in snakeMovePositionsList)
-                {
-                    if (gridPosition == movePosition.GetGridPosition()) // Posición de la cabeza coincide con alguna parte del cuerpo
-                    {
-                        // GAME OVER
-                        state = State.Dead;
-                        GameManager.Instance.SnakeDied();
-                    }
-                }
-
-                transform.position = new Vector3(gridPosition.x, gridPosition.y, 0);
-                transform.eulerAngles = new Vector3(0, 0, GetAngleFromVector(gridMoveDirectionVector));
-                UpdateBodyParts();
-
+                PositiveDirection();
             }
             else if(SceneManager.GetActiveScene().name == "Level2")
 
             {
-                switch (gridMoveDirection)
-                {
-                    default:
-                    case Direction.Left:
-                        gridMoveDirectionVector = new Vector2Int(1, 0);
-                        break;
-                    case Direction.Right:
-                        gridMoveDirectionVector = new Vector2Int(-1, 0);
-                        break;
-                    case Direction.Down:
-                        gridMoveDirectionVector = new Vector2Int(0, 1);
-                        break;
-                    case Direction.Up:
-                        gridMoveDirectionVector = new Vector2Int(0, -1);
-                        break;
-                }
+                NegativeDirection();
+            }
+        }
+    }
 
-                gridPosition += gridMoveDirectionVector; // Mueve la posición 2D de la cabeza de la serpiente
-                gridPosition = levelGrid.ValidateGridPosition(gridPosition);
+    private void PositiveDirection()
+    {
+        // Relación entre enum Direction y vectores left, right, down y up
+        Vector2Int gridMoveDirectionVector;
 
-                // ¿He comido comida?
-                bool snakeAteFood = levelGrid.TrySnakeEatFood(gridPosition);
-                if (snakeAteFood)
-                {
-                    // El cuerpo crece
-                    snakeBodySize++;
-                    CreateBodyPart();
-                }
+        switch (gridMoveDirection)
+        {
+            default:
+            case Direction.Left:
+                gridMoveDirectionVector = new Vector2Int(-1, 0);
+                break;
+            case Direction.Right:
+                gridMoveDirectionVector = new Vector2Int(1, 0);
+                break;
+            case Direction.Down:
+                gridMoveDirectionVector = new Vector2Int(0, -1);
+                break;
+            case Direction.Up:
+                gridMoveDirectionVector = new Vector2Int(0, 1);
+                break;
+        }
 
-                if (snakeMovePositionsList.Count > snakeBodySize)
-                {
-                    snakeMovePositionsList.
-                        RemoveAt(snakeMovePositionsList.Count - 1);
-                }
+        gridPosition += gridMoveDirectionVector; // Mueve la posición 2D de la cabeza de la serpiente
+        gridPosition = levelGrid.ValidateGridPosition(gridPosition);
 
-                // Comprobamos el Game Over aquí porque tenemos la posición de la cabeza y la lista snakeMovePositionsList actualizadas para poder comprobar la muerte
-                foreach (SnakeMovePosition movePosition in snakeMovePositionsList)
-                {
-                    if (gridPosition == movePosition.GetGridPosition()) // Posición de la cabeza coincide con alguna parte del cuerpo
-                    {
-                        // GAME OVER
-                        state = State.Dead;
-                        GameManager.Instance.SnakeDied();
-                    }
-                }
+        EatFood();
 
-                transform.position = new Vector3(gridPosition.x, gridPosition.y, 0);
-                transform.eulerAngles = new Vector3(0, 0, GetAngleFromVector(gridMoveDirectionVector));
-                UpdateBodyParts();
+        CheckGameOver();
+
+        transform.position = new Vector3(gridPosition.x, gridPosition.y, 0);
+        transform.eulerAngles = new Vector3(0, 0, GetAngleFromVector(gridMoveDirectionVector));
+        UpdateBodyParts();
+    }
+
+    private void NegativeDirection()
+    {
+        // Relación entre enum Direction y vectores left, right, down y up
+        Vector2Int gridMoveDirectionVector;
+        switch (gridMoveDirection)
+        {
+            default:
+            case Direction.Left:
+                gridMoveDirectionVector = new Vector2Int(1, 0);
+                break;
+            case Direction.Right:
+                gridMoveDirectionVector = new Vector2Int(-1, 0);
+                break;
+            case Direction.Down:
+                gridMoveDirectionVector = new Vector2Int(0, 1);
+                break;
+            case Direction.Up:
+                gridMoveDirectionVector = new Vector2Int(0, -1);
+                break;
+        }
+
+        gridPosition += gridMoveDirectionVector; // Mueve la posición 2D de la cabeza de la serpiente
+        gridPosition = levelGrid.ValidateGridPosition(gridPosition);
+
+        EatFood();
+
+        CheckGameOver();
+
+        transform.position = new Vector3(gridPosition.x, gridPosition.y, 0);
+        transform.eulerAngles = new Vector3(0, 0, GetAngleFromVector(gridMoveDirectionVector));
+        UpdateBodyParts();
+
+    }
+
+    private void EatFood()
+    {
+        // ¿He comido comida?
+        bool snakeAteFood = levelGrid.TrySnakeEatFood(gridPosition);
+        if (snakeAteFood)
+        {
+            // El cuerpo crece
+            snakeBodySize++;
+            CreateBodyPart();
+        }
+
+        if (snakeMovePositionsList.Count > snakeBodySize)
+        {
+            snakeMovePositionsList.
+                RemoveAt(snakeMovePositionsList.Count - 1);
+        }
+    }
+
+    private void CheckGameOver()
+    {
+        // Comprobamos el Game Over aquí porque tenemos la posición de la cabeza y la lista snakeMovePositionsList actualizadas para poder comprobar la muerte
+        foreach (SnakeMovePosition movePosition in snakeMovePositionsList)
+        {
+            if (gridPosition == movePosition.GetGridPosition()) // Posición de la cabeza coincide con alguna parte del cuerpo
+            {
+                // GAME OVER
+                state = State.Dead;
+                GameManager.Instance.SnakeDied();
             }
         }
     }
