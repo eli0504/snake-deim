@@ -106,12 +106,12 @@ public class LevelGrid
             if (gridPosition.y > h)
             {
                 gridPosition.y = -h;
-                gridPosition.x *= 1;
+                gridPosition.x *= -1;
             }
             if (gridPosition.y < -h)
             {
                 gridPosition.y = h;
-                gridPosition.x *= 1;
+                gridPosition.x *= -1;
             }
         }
         return gridPosition;
